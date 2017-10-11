@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ page_title }}</title>
+	<style type="text/css">
+		.standard-links {
+			padding-right: 120px
+			color: blue;
+		display: inline-block;
+		}
+
+		#blog-body {
+		    border: 0;
+		    outline: 0;
+		    background: transparent;
+		    border-bottom: 2px solid black;
+		    width: 20px;
+}
+	</style>
+</head>
+<body>
+	<span><a class="standard-links" href="/blog">Main Blog Page</a></span>
+	<p class="standard-links"> | </p>
+	<span><a class="standard-links" href="/newpost">Add a Blog Entry</a></span>
+
+
+	{% block content %}
+
+	{% endblock %}
+</body>	
+</html>
