@@ -39,15 +39,13 @@ def index():
 		
 			blog_id = request.args.get('id')
 			blog_title = Blog.query.filter_by(id=blog_id).first()
-			#title = blog_title.title
 			blog_body = Blog.query.filter_by(id=blog_id).first()
-			#body = blog_body.body
 
 			title = str(blog_title.title)
 			body = str(blog_body.body)
 
-			return render_template('blog.html', blog_list=get_blog_list(), 
-			page_title='Blog', blog_id=blog_id, title=title, body=body)
+			return render_template('blog.html', page_title='Blog', 
+				blog_id=blog_id, title=title, body=body)
 
 		else:
 			return render_template('blog.html', blog_list=get_blog_list())
@@ -59,10 +57,8 @@ def index():
 
 		if not title or not body:
 
-			#PROBLEM WITH FLASH
-
-			flash('Please make sure to enter a title and body for your blog')
-			return redirect('/newpost')
+			flash("Please make sure to enter a title and body for your blog")
+			return render_template('newpost.html', title=title, body=body)
 
 		else:
 
