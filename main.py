@@ -26,8 +26,6 @@ def get_blog_list():
 @app.route('/newpost', methods=['GET'])
 def newpost():
 
-	# Hard time refreshing with previously typed
-
 	return render_template('newpost.html', page_title='Add a Blog')
 
 
@@ -69,8 +67,7 @@ def index():
 
 			blog_post = Blog.query.filter_by(title = title).first()
 
-			return render_template('blog.html', blog_list=get_blog_list(), 
-			page_title='Blog', blog_id=blog_post.id, title=blog_post.title, body=blog_post.body)
+			return redirect('/blog?id=' + str(blog_post.id))
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RU'
 
