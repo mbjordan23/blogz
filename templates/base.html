@@ -22,9 +22,20 @@
 	</style>
 </head>
 <body>
-	<span><a class="standard-links" href="/blog">Main Blog Page</a></span>
+	<span><a class="standard-links" href="/">home</a></span>
 	<p class="standard-links"> | </p>
-	<span><a class="standard-links" href="/newpost">Add a Blog Entry</a></span>
+	<span><a class="standard-links" href="/blog">all posts</a></span>
+	<p class="standard-links"> | </p>
+	<span><a class="standard-links" href="/newpost">new post</a></span>
+	<p class="standard-links"> | </p>
+	
+	<span><a class="standard-links" href="/login">login</a></span>
+	<p class="standard-links"> | </p>
+	<span><a class="standard-links" href="/logout">logout</a></span>
+
+	{% if 'email' in session %}
+		<span><p align="right">Hello, {{user.username}}</p></span>
+	{% endif %}
 
 	{% block content %}
 

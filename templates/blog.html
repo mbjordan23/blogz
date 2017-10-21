@@ -11,6 +11,7 @@
 	{% for blog in blog_list %}
 		<h2 style="color:blue"><a href="/blog?id={{ blog.id }}" method="get">{{ blog.title }}</a></h2>
 		<p>{{ blog.body }}</p>
+		<p><i font-size:"70%">written by <a href="/blog?userid={{blog.owner.id}}">{{blog.owner.username}}</a></i></p>
 		<hr />
 	{% endfor %}
 {% endif %}

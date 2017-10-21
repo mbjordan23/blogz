@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 style="text-align:center">Login</h1>
+
+<form action="/login" method="post">
+
+	<label>
+		Username:
+		<input type="text" name="username" value="{{username}}" />
+	</label>
+	<br />
+	<br />
+
+	<label>
+		Password:
+		<input type="password" name="password" />
+	</label>
+	<br />
+	<br />
+
+	<input type="submit" name="Login" />
+
+	{% with messages = get_flashed_messages() %}
+
+		{% for message in messages %}
+			<p class="error">{{ message }}</p>
+		{% endfor %}
+
+	{% endwith %}
+
+</form>
+
+<br />
+
+<span><a class="standard-links" href="/signup">Create an Account</a></span>
+
+
+{% endblock %}
